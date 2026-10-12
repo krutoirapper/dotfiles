@@ -45,7 +45,6 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("waybar")
     hl.exec_cmd("dunst")
     hl.exec_cmd("hyprpaper")
-    hl.exec_cmd("hypridle")
     hl.exec_cmd("~/.local/bin/TgWsProxy")
 end)
 
@@ -93,7 +92,7 @@ hl.config({
 
         col = {
             active_border   = "rgba(c87941ff)",
-            inactive_border = "rgba(282828ff)",
+            inactive_border = "rgba(5c5c5cff)",
         },
 
         -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
@@ -121,9 +120,8 @@ hl.config({
 
         blur = {
             enabled   = true,
-            size      = 3,
-            passes    = 1,
-            vibrancy  = 0.1696,
+            size      = 8,
+            passes    = 2,
         },
     },
 
@@ -155,9 +153,9 @@ hl.animation({ leaf = "layersIn",      enabled = true,  speed = 4,    bezier = "
 hl.animation({ leaf = "layersOut",     enabled = true,  speed = 1.5,  bezier = "linear",       style = "fade" })
 hl.animation({ leaf = "fadeLayersIn",  enabled = true,  speed = 1.79, bezier = "almostLinear" })
 hl.animation({ leaf = "fadeLayersOut", enabled = true,  speed = 1.39, bezier = "almostLinear" })
-hl.animation({ leaf = "workspaces",    enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 1.21, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
+hl.animation({ leaf = "workspaces",    enabled = true,  speed = 1.94, bezier = "almostLinear", style = "slidefade" })
+hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 1.21, bezier = "almostLinear", style = "slidefade" })
+hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 1.94, bezier = "almostLinear", style = "slidefade" })
 hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "quick" })
 
 -- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
@@ -177,6 +175,12 @@ hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "
 --     border_size = 0,
 --     rounding    = 0,
 -- })
+
+hl.layer_rule({
+    match = {namespace = "launcher"},
+    blur = true,
+})
+
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({
@@ -259,7 +263,7 @@ hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("kitty"))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("kitty zsh -ci yazi"))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("~/.config/rofi/launchers/type-4/launcher.sh"))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("fuzzel"))
 
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
