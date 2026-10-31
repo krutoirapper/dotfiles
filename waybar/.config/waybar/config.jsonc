@@ -1,15 +1,19 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 38,
+    "height": 40,
 
     "modules-left": ["hyprland/workspaces"],
     "modules-center": ["clock"],
-    "modules-right": ["tray"],
+    "modules-right": ["hyprland/language", "tray"],
 
     "hyprland/workspaces": {
         "format": "{name}",
         "active-only": false
+    },
+
+    "hyprland/language": {
+        "format": "{short} {variant}"
     },
 
     "clock": {

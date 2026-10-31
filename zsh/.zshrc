@@ -10,4 +10,8 @@ function y() {
 }
 export EDITOR="nvim"
 export VISUAL="nvim"
-alias j="zellij attach -c main"
+pac() {
+  pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S
+}
+alias unpac="sudo pacman -Rns $(pacman -Qdtq)"
+

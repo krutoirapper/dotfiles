@@ -28,6 +28,7 @@ return {
                     'basedpyright',
                     'ruff',
                     'clangd',
+                    'gopls',
                 },
                 handlers = {
                     function(server_name)

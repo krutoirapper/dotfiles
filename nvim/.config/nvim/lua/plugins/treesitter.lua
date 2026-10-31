@@ -15,6 +15,7 @@ return {
 		"css",
 		"javascript",
                 "bash",
+                "go",
 	    },
 	})
     end,
