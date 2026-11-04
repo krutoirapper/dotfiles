@@ -12,6 +12,8 @@ vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 750
 vim.opt.showmode = false
 vim.opt.termguicolors = true
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
 
 vim.keymap.set('v', 'p', '"_dP')
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
@@ -21,4 +23,6 @@ vim.keymap.set('n', '<Esc>', function()
     vim.cmd('nohlsearch')
     vim.fn.setreg('/', '')
 end, { silent = true })
+
+vim.keymap.set('i', 'jk', '<Esc>')
 
